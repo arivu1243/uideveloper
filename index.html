@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="https://bgrins.github.io/spectrum/spectrum.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://bgrins.github.io/spectrum/spectrum.js"></script>
+  <style>
+  body {
+    font-family: sans-serif;
+    margin: 20px;
+	background-color: #eee;
+	font-size:14px;
+  }
+  .container {
+    padding: 20px;
+    box-shadow: 0 0 3px #ccc;
+    background-color: #fff;
+  }
+  .btn-group {
+    display: flex;
+    flex-direction: row;
+  }
+  .tablink {
+    background-color: #ccc;
+    position: relative;
+    color: white;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    padding: 12px;
+    font-size: 16px;
+    flex-grow: 1;
+  }
+  .tablink:nth-child(2){
+    margin:0px 10px;
+  }
+  .tablink.active::after {
+    content: '';
+    position: absolute;
+    border: 9px solid transparent;
+    border-bottom: 0;
+    border-top-color: #1E90FF;
+    left: 50%;
+    bottom: -9px;
+    transform: translateX(-50%);
+  }
+  .tabcontent {
+    display: none;
+  }
+  form {
+    display: inline-block;
+    width: 100%;
+    margin: 25px 0;
+  }
+  .column {
+    width: 33%;
+    float: left;
+  }
+  .header {
+    display: inline-block;
+    width: 100%;
+	background-color:red;
+	color: white;	
+    padding: 20px;
+    text-align: center;
+	box-sizing: border-box;
+  }
+  .header a {
+    padding: 12px;
+    text-decoration: none;
+	color: #fff;
+  }
+  .header img{
+    background: #ccc;
+    padding: 5px 5px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+	float: left;
+  }
+  .header-left {
+    float: left;
+    text-align: left;
+  }
+  .header-left h1, .header-left p{
+    margin: 0;
+  }
+  .profile {
+    float: left;
+    margin-left: 15px;
+  }
+  .header-right {
+    float: right;
+    margin-top: 20px;
+  }
+  .header a.contact {
+    background: #fff;
+	color: #ff0000;
+  }
+  .sp-replacer {
+    margin: 5px 10px;
+	border: 1px solid #ccc;
+  }
+  .sp-preview {
+    width: 15px;
+    height: 15px;
+  }
+  .sp-dd {
+    padding: 0 5px;
+    font-size: 8px;
+    color: #aaa;
+  }
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="btn-group">
+      <button class="tablink" onclick="openCity('Heading', this, '#1E90FF')" id="defaultOpen">Heading</button>
+      <button class="tablink" onclick="openCity('Sidebar', this, '#1E90FF')">Sidebar</button>
+      <button class="tablink" onclick="openCity('Body', this, '#1E90FF')">Body</button>
+    </div>
+    <div id="Heading" class="tabcontent">
+	  <form>
+        <div class="column"><input id='bg' class='colorpicker' value='red'/><label for="bg">Background Color</label></div>
+        <div class="column"><input id='name' class='colorpicker' value='white'/><label for="name">Your name</label></div>
+        <div class="column"><input id='contbtn' class='colorpicker' value='white'/><label for="contact-btn">Contact button color</label></div>
+        <div class="column"><input id='menu' class='colorpicker' value='white'/><label for="menu">Menu text color</label></div>
+        <div class="column"><input id='designation' class='colorpicker' value='white'/><label for="designation">Designation</label></div>
+        <div class="column"><input id='conttext' class='colorpicker' value='red'/><label for="contact-btn-text">Contact button text color</label></div>
+      </form>
+      <div class="header">
+	    <div class="header-left">
+		  <img class="logo" src="../Arsha - Copy/assets/img/prof-icon.png">
+		  <div class="profile">
+		    <h1>Sivaramakrishnan D</h1>
+            <p>UI Developer</p>
+		  </div>
+		</div>
+        <div class="header-right">
+          <a class="contact" href="#home">Contact Me</a>
+          <a href="#contact">Home</a>
+          <a href="#about">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="Sidebar" class="tabcontent">
+	  <form>
+        <div class="column"><input class='colorpicker' value='white'/><label for="bg">Background Color</label></div>
+        <div class="column"><input class='colorpicker' value='white'/><label for="name">Your name</label></div>
+        <div class="column"><input class='colorpicker' value='white'/><label for="contact-btn">Contact button color</label></div>
+        <div class="column"><input class='colorpicker' value='white'/><label for="menu">Menu text color</label></div>
+        <div class="column"><input class='colorpicker' value='white'/><label for="designation">Designation</label></div>
+        <div class="column"><input class='colorpicker' value='white'/><label for="contact-btn-text">Contact button text color</label></div>
+      </form>
+	  <h1>Sidebar</h1>
+    </div>
+
+    <div id="Body" class="tabcontent">
+	  <form>
+        <div class="column"><input class='colorpicker' value='white'/><label for="bg">Background Color</label></div>
+        <div class="column"><input class='colorpicker' value='white'/><label for="name">Your name</label></div>
+        <div class="column"><input class='colorpicker' value='white'/><label for="contact-btn">Contact button color</label></div>
+        <div class="column"><input class='colorpicker' value='white'/><label for="menu">Menu text color</label></div>
+        <div class="column"><input class='colorpicker' value='white'/><label for="designation">Designation</label></div>
+        <div class="column"><input class='colorpicker' value='white'/><label for="contact-btn-text">Contact button text color</label></div>
+      </form>
+      <h1>Body</h1>
+    </div>
+  </div>
+
+<script>
+function openCity(cityName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+	tablinks[i].classList.remove("active");
+  } 
+  document.getElementById(cityName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+  elmnt.classList.add("active");
+}
+document.getElementById("defaultOpen").click();
+</script>
+<script>
+function updatebg(hexColor) {
+    $(".header").css("background-color", hexColor);
+}
+function updatename(hexColor) {
+    $(".profile h1").css("color", hexColor);
+}
+function updatecontbtn(hexColor) {
+    $(".contact").css("background-color", hexColor);
+}
+function updatemenu(hexColor) {
+    $(".header a:not(.contact)").css("color", hexColor);
+}
+function updatedesignation(color) {
+    $(".profile p").css("color", hexColor);
+}
+function updateconttext(color) {
+    $(".contact").css("color", hexColor);
+}
+
+$(function() {
+$("input.colorpicker").spectrum({
+    move: function (color) {
+	  var pickerid = this.id;
+	  hexColor = color.toHexString();
+	  if(pickerid == 'bg'){
+        updatebg(hexColor);
+	  }if(pickerid == 'name'){
+        updatename(color);
+	  }if(pickerid == 'contbtn'){
+        updatecontbtn(color);
+	  }if(pickerid == 'menu'){
+        updatemenu(color);
+	  }if(pickerid == 'designation'){
+        updatedesignation(color);
+	  }if(pickerid == 'conttext'){
+        updateconttext(color);
+	  }
+    },
+    showInput: true,
+    chooseText: "Set Color",
+    cancelText: "",
+    showPalette: true,
+    palette: [
+        ["#000","#666","#eee","#fff"],
+        ["#f4cccc","#d9ead3","#cfe2f3","#ead1dc"],
+        ["#e06666","#93c47d","#6fa8dc","#c27ba0"],
+        ["#900","#bf9000","#0b5394","#741b47"]
+    ]
+});
+});
+</script>
+</body>
+</html> 
